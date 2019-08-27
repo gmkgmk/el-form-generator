@@ -1,4 +1,4 @@
-import componentList from './components';
+import componentList from './../components';
 import _ from 'lodash';
 
 export default {
@@ -42,7 +42,7 @@ export default {
     return (
       <el-form-item
         class="el-generator-field-wrap"
-        label="label"
+        label={label}
         props={formItemOption}
       >
         <component

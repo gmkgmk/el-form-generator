@@ -1,6 +1,7 @@
 import GeneratorGroup from './formGeneratorGroup';
 import _ from 'lodash';
 const getComponentIndex = value => {
+  if (!value.data) return;
   return value.data.attrs.componentIndex;
 };
 export default {
@@ -25,7 +26,7 @@ export default {
   methods: {
     onModelUpdated(schema, newVal) {
       if (this.autoUpdateModel) {
-        this.$parent.$set(this.$parent.model, schema, newVal);
+        this.$parent.$set(this.$parent.modelData, schema, newVal);
       }
       this.$emit('model-updated', schema, newVal);
     },
@@ -33,7 +34,7 @@ export default {
     createFields(slots = [], fields = []) {
       const localFields = fields.slice();
       // 查看slots是否有排序
-      const { slotSortList, slotsList } = _.groupBy(slots, value => {
+      const { slotSortList = [], slotsList = [] } = _.groupBy(slots, value => {
         if (getComponentIndex(value)) {
           return 'slotSortList';
         } else {

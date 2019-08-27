@@ -1,4 +1,6 @@
-import { get as objGet, isFunction } from 'lodash';
+import  objGet  from 'lodash/get';
+// import { get as objGet } from 'lodash';
+import isFunction from 'lodash/isFunction'
 export default {
   mounted() {
     if (this.schema.defaultValue) {

@@ -1,11 +1,7 @@
-import defaultComponents from './components';
-import FormGenerator from './formGenerator';
+import defaultComponents from './components/index.js';
+import FormGenerator from './src/formGenerator';
 
-const install = async (
-  Vue,
-) => {
-
-
+const install = async Vue => {
   Vue.component('VueFormGenerator', FormGenerator);
 };
 
